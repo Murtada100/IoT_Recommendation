@@ -53,7 +53,7 @@ $(document).on("click", "span.fog1", function () {
 
 function GetFog(counter) {
     //  return '<div id="fog' + counter + '" class="fog" data-parent="#fogs"> <a class="card-link" data-toggle="collapse" href="#fog'+counter+'_thing1"> <div class="input-group mb-3"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fas fa-cloud"></i></span> </div> <button type="button" class="btn btn-outline-primary fog"> Fog</button> <div class="input-group-prepend"> <span id="'+counter+'" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span> <span class="input-group-text fog1"><i class="fa fa-plus"></i></span> </div> </div> </a> <div id="things"  > </div> </div> ';
-    return '<div id="fog' + counter + '" fognumber="'+counter+'" class="fog" data-parent="#fogs"> <a class="card-link" data-toggle="collapse" href="#things' + counter + '"> <div class="input-group mb-3"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fas fa-cloud"></i></span> </div> <button type="button" class="btn btn-outline-primary fog"> Fog</button> <div class="input-group-prepend"> <span id="' + counter + '" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span> <span id="' + counter + '" class="input-group-text fog1"><i class="fa fa-plus"></i></span> </div> </div> </a> <div id="things' + counter + '"  class="collapse show" data-parent="#fog' + counter + '"> </div> </div> ';
+    return '<div id="fog' + counter + '" fognumber="'+counter+'" class="fog" data-parent="#fogs"> <a class="card-link" data-toggle="collapse" href="#things' + counter + '"> <div class="input-group mb-3"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fas fa-cloud"></i></span> </div> <button type="button" class="btn btn-outline-info fog"> Fog</button> <div class="input-group-prepend"> <span id="' + counter + '" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span> <span id="' + counter + '" class="input-group-text fog1"><i class="fa fa-plus"></i></span> </div> </div> </a> <div id="things' + counter + '"  class="collapse show" data-parent="#fog' + counter + '"> </div> </div> ';
 }
 $('input[type=range]').on('change', function () {  
     console.log("dsdsds!")
@@ -72,12 +72,12 @@ function GetThing(counter, fog_counter) {
     // console.log("return here!")
     var thing_id="fog" + fog_counter + "_thing" + counter;
     var inputs='<label for="distance_'+thing_id+'">Distance:  </label><input type="range" class="slider" id="distance_'+thing_id+'" name="distance_'+thing_id+'" min="1" max="100" value="50"> <span id="distance_'+thing_id+'">50</span></br> ';
-    inputs=inputs+ '<label for="data_'+thing_id+'">Data Size:  </label><select name="data_'+thing_id+'" class="custom-select-sm"> <option value="100">100 Bytes</option> <option value="500">500 Bytes</option> <option value="1024">1024 Bytes</option></select>';
+    inputs=inputs+ '<label for="data_'+thing_id+'">Data Size:  </label><select name="data_'+thing_id+'" id="data_'+thing_id+'" class="custom-select-sm"> <option value="100">100 Bytes</option> <option value="500">500 Bytes</option> <option value="1024">1024 Bytes</option></select>';
     inputs=inputs+ '</br><label for="rate_'+thing_id+'">Rate send:  </label><input type="range"  class="slider" id="rate_'+thing_id+'" min="1" max="100" value="50" name="rate_'+thing_id+'">  <span id="rate_'+thing_id+'">50</span>';
     
     
     //return '<div id="fog'+fog_counter+'_thing' + counter + '" class="thing" data-parent="#fog' + fog_counter + '">  <a class="card-link" data-toggle="collapse" href="#fog' + fog_counter + '_thing' + counter + '_details">  <div class="input-group mb-3">  <div class="input-group-prepend">  <span class="input-group-text"><i class="fas fa-cloud"></i></span>  </div>  <button type="button" class="btn btn-outline-primary thing"> Thing</button>  <div class="input-group-prepend">  <span id="fog'+fog_counter+'_thing' + counter + '" class="deletingThing input-group-text thing1"><i class="fa fa-times"></i></span>     </div>  </div>  </a>  <div id="fog' + fog_counter + '_thing' + counter + '_details" class="collapse show" data-parent="#fog'+fog_counter+'_thing' + counter + '">  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip  ex ea commodo consequat.   </div> </div>';
-    return '<div id="fog' + fog_counter + '_thing' + counter + '" class="thing" data-parent="#things' + fog_counter + '">  <a class="card-link" data-toggle="collapse" href="#fog' + fog_counter + '_thing' + counter + '_details">  <div class="input-group mb-3">  <div class="input-group-prepend">  <span class="input-group-text"><i class="fas fa-cloud"></i></span>  </div>  <button type="button" class="btn btn-outline-primary thing"> Thing</button>  <div class="input-group-prepend">  <span id="fog' + fog_counter + '_thing' + counter + '" class="deletingThing input-group-text thing1"><i class="fa fa-times"></i></span>     </div>  </div>  </a>  <div id="fog' + fog_counter + '_thing' + counter + '_details" style=" padding-left: 50px;    width: 550px;" class="collapse show" data-parent="#fog' + fog_counter + '_thing' + counter + '"> '+inputs+'   </div> </div>';
+    return '<div id="fog' + fog_counter + '_thing' + counter + '" class="thing" data-parent="#things' + fog_counter + '">  <a class="card-link" data-toggle="collapse" href="#fog' + fog_counter + '_thing' + counter + '_details">  <div class="input-group mb-3">  <div class="input-group-prepend">  <span class="input-group-text"><i class="fas fa-cloud"></i></span>  </div>  <button type="button" class="btn btn-outline-success thing"> Thing</button>  <div class="input-group-prepend">  <span id="fog' + fog_counter + '_thing' + counter + '" class="deletingThing input-group-text thing1"><i class="fa fa-times"></i></span>     </div>  </div>  </a>  <div id="fog' + fog_counter + '_thing' + counter + '_details" style=" padding-left: 50px;    width: 550px;" class="collapse show" data-parent="#fog' + fog_counter + '_thing' + counter + '"> '+inputs+'   </div> </div>';
 }
 
 function GetData() {
@@ -89,12 +89,39 @@ function GetData() {
 
           var fognumber = $(this).attr('fognumber');
         var count_thing = $(this).children('#things'+fognumber).children('.thing').length;;
-       
-        // item = {}
-        // item ["title"] = id;
-        // item ["email"] = email;
+        jsonObjTemp=[];
+
+        $(this).children('#things'+fognumber).children('.thing').each(function() {
+
+            var id_thing= $(this).attr('id');
+            var distance=$('input#distance_'+id_thing).val();
+            var rate=$('input#rate_'+id_thing).val();
+            var data=$('select#data_'+id_thing).val();
+            thing={};
+            thing ["distance"] = distance;
+            thing ["rate"] = rate;
+            thing ["data"] = data;
+            jsonObjTemp.push({"thing":thing});
+            
+        });
+      
         console.log(fognumber+"   -count_thing:   "+count_thing)
 
-       // jsonObj.push(item);
+        jsonObj.push({"fog":jsonObjTemp});
     });
+   // console.log(jsonObj);
+    return jsonObj;
+}
+function SendData() {
+var ddd =GetData();
+//    console.log(ddd);
+$.post( "php/reciver.php",ddd, function( data, status, jqXHR ) {
+    alert('status: ' + status + ', data: ' + data );
+    console.log(jqXHR);
+  });
+// var xhr = new XMLHttpRequest();
+// xhr.open("POST", "php/reciver.php");
+// xhr.onreadystatechange = function() { if (xhr.readyState === 4 && xhr.status === 200) { console.log(xhr.responseText); } }
+// xhr.setRequestHeader("Content-type", "application/json")
+// xhr.send(JSON.stringify(data)); 
 }
