@@ -1,4 +1,5 @@
-  
+
+ 
   html, body {
     margin: 0;
     height: 100%;
@@ -15,10 +16,10 @@
   .header {
     grid-area: header;
     background-color: #f1f1f1;
-      padding-top: 70px;  
+      paddingz: 30px;  
     text-align: center;
     font-size: 35px;
-  /* height: 30%;   Should be removed. Only for demonstration */
+    /* height: 30%; Should be removed. Only for demonstration */
     width: 100%;
 
   }
@@ -40,7 +41,7 @@
   .middle,
   .right {
     padding-top: 15px;
-    height: 500px;/*  */
+    /* height: 70%; */
     /* width: 70%; Should be removed. Only for demonstration */
   }
   
@@ -53,8 +54,6 @@
   /* Style the middle column */
   .middle {
     grid-area: middle;
-    background-color: #f1f1f1;
-
   }
   
   /* Style the right column */
@@ -83,47 +82,9 @@
     }
   }
 
-  /* *************************************************** */
-  ul, #clouds {
-    list-style-type: none;
-  }
-  
-  /* Remove margins and padding from the parent ul */
-  #clouds {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Style the caret/arrow */
-  .caret {
-    cursor: pointer;
-    user-select: none; /* Prevent text selection */
-  }
-  
-  /* Create the caret/arrow with a unicode, and style it */
-  .caret::before {
-    content: "\25B6";
-    color: black;
-    display: inline-block;
-    margin-right: 6px;
-  }
-  
-  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-  .caret-down::before {
-    transform: rotate(90deg);
-  }
-  
-  /* Hide the nested list */
-  .nested {
-    display: none;
-  }
-  
-  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
-  .active {
-    display: block;
-  }
-  /*********************************************/
-  
+/* MENU-LEFT
+-------------------------- */
+/* layout */
 #left ul.nav {
     margin-bottom: 2px;
     font-size: 12px; /* to change font-size, please change instead .lbl */
