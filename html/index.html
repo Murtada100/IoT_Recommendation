@@ -14,9 +14,7 @@
         <!-- Fonts CSS-->
         <link rel="stylesheet" href="css/heading.css">
         <link rel="stylesheet" href="css/body.css">
-        <script>
-
-        </script>
+ 
     <script src="treelist.js"></script>
 </head>
     <body id="page-top">
@@ -26,6 +24,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Recommender</a>
+                        </li>   
+                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#Criteria1">Criteria</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">ABOUT</a>
                         </li>
@@ -51,7 +51,10 @@
             </div>
         </header>
         <section class="page-section portfolio" id="portfolio">
-            <div class="container">
+            <!-- <form>
+                <input name="submit" type="submit" value="Submit">
+              </form> -->
+              <div class="container">
                 <!-- Portfolio Section Heading-->
                 <div class="text-center">
                     <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Recommender</h2>
@@ -65,26 +68,83 @@
                
                 
 
-                <div id="accordion"  class="border">
+                <div id="accordion" class="border">
                     <div id="cloud1" style="padding-top: 15px; padding-left: 15px;" class="collapse show" data-parent="#accordion">
-                     <a class="card-link" data-toggle="collapse" href="#fogs">
-                        <div  class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-cloud"></i></span>
+                        <a class="card-link" data-toggle="collapse" href="#fogs">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-cloud"></i></span>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary cloud"> Cloud</button>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text addfog cloud1"><i class="fa fa-plus"></i></span>
+                                </div>                
                             </div>
-                            <button type="button" class="btn btn-outline-primary cloud"> Cloud</button>
-                            <div class="input-group-prepend">
-                                <span   class="input-group-text addfog cloud1"><i class="fa fa-plus"></i></span>
-                            </div>
-                
+                        </a>                
+                        <div id="fogs" class="panel-collapse collapse" data-parent="#cloud1">
                         </div>
-                    </a>
-                   
-                    <div id="fogs" class="panel-collapse collapse"data-parent="#cloud1">
-                       
+                    </div>
                 </div>
-                </div>
+            </div>
 
+
+        </div>
+            </section>
+            
+
+            <br>
+            <br>
+            <br>
+            <section class="page-section portfolio" id="Criteria1">
+
+            <div class="container">
+                <!-- Criteria Section Heading-->
+                <div class="text-center" >
+                        <a class="card-link"  class="collapse show"  data-toggle="collapse" href="#Criteria">
+                                <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Criteria</h2>
+                         </a>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <div id="accordion" class="border">
+                    <div id="Criteria" class="panel-collapse collapse">
+                    <div class="form-group" style="background: aliceblue;">
+                        <label for="Frequency">Frequency:</label>
+                        <input type="range"  class="form-control" min="1" max="100" value="50" id="Frequency">
+                        <label for="FrequencyPriority">Priority:  </label><select name="FrequencyPriority" id="FrequencyPriority" class="custom-select-sm"> <option value="0">Un Classified</option> <option value="1" selected>1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option><option value="6">6</option> </select>
+                      </div> 
+                      <div class="form-group" style="background: aliceblue;">
+                        <label for="Sensitivity">Sensitivity:</label>
+                        <input type="range"  class="form-control" min="1" max="100" value="50" id="Sensitivity">
+                        <label for="SensitivityPriority">Priority:  </label><select name="SensitivityPriority" id="SensitivityPriority" class="custom-select-sm"> <option value="0">Un Classified</option> <option value="1" selected>1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option><option value="6">6</option> </select>
+                    </div>
+                      <div class="form-group" style="background: aliceblue;">
+                        <label for="Freshness">Freshness:</label>
+                        <input type="range"  class="form-control" min="1" max="100" value="50" id="Freshness">
+                        <label for="FreshnessPriority">Priority:  </label><select name="FreshnessPriority" id="FreshnessPriority" class="custom-select-sm"> <option value="0">Un Classified</option> <option value="1" selected>1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option><option value="6">6</option> </select>
+                    </div>
+                      <div class="form-group" style="background: aliceblue;">
+                        <label for="Time">Time:</label>
+                        <input type="range"  class="form-control" min="1" max="100" value="50" id="Time">
+                        <label for="TimePriority">Priority:  </label><select name="TimePriority" id="TimePriority" class="custom-select-sm"> <option value="0">Un Classified</option> <option value="1" selected>1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option><option value="6">6</option> </select>
+                    </div>
+                      <div class="form-group" style="background: aliceblue;">
+                        <label for="Volume">Volume:</label>
+                        <input type="range"  class="form-control" min="1" max="100" value="50" id="Volume">
+                        <label for="VolumePriority">Priority:  </label><select name="VolumePriority" id="VolumePriority" class="custom-select-sm"> <option value="0">Un Classified</option> <option value="1" selected>1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option><option value="6">6</option> </select>
+                    </div>
+                      <div class="form-group" style="background: aliceblue;">
+                        <label for="Criticality">Criticality:</label>
+                        <input type="range"  class="form-control" min="1" max="100" value="50" id="Criticality">
+                        <label for="CriticalityPriority">Priority:  </label><select name="CriticalityPriority" id="CriticalityPriority" class="custom-select-sm"> <option value="0">Un Classified</option> <option value="1" selected>1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option><option value="6">6</option> </select>
+                    </div>
+                    </div>
+                </div> 
+                      
 
 
             </div>

@@ -79,7 +79,43 @@ function GetThing(counter, fog_counter) {
     //return '<div id="fog'+fog_counter+'_thing' + counter + '" class="thing" data-parent="#fog' + fog_counter + '">  <a class="card-link" data-toggle="collapse" href="#fog' + fog_counter + '_thing' + counter + '_details">  <div class="input-group mb-3">  <div class="input-group-prepend">  <span class="input-group-text"><i class="fas fa-cloud"></i></span>  </div>  <button type="button" class="btn btn-outline-primary thing"> Thing</button>  <div class="input-group-prepend">  <span id="fog'+fog_counter+'_thing' + counter + '" class="deletingThing input-group-text thing1"><i class="fa fa-times"></i></span>     </div>  </div>  </a>  <div id="fog' + fog_counter + '_thing' + counter + '_details" class="collapse show" data-parent="#fog'+fog_counter+'_thing' + counter + '">  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip  ex ea commodo consequat.   </div> </div>';
     return '<div id="fog' + fog_counter + '_thing' + counter + '" class="thing" data-parent="#things' + fog_counter + '">  <a class="card-link" data-toggle="collapse" href="#fog' + fog_counter + '_thing' + counter + '_details">  <div class="input-group mb-3">  <div class="input-group-prepend">  <span class="input-group-text"><i class="fas fa-cloud"></i></span>  </div>  <button type="button" class="btn btn-outline-success thing"> Thing</button>  <div class="input-group-prepend">  <span id="fog' + fog_counter + '_thing' + counter + '" class="deletingThing input-group-text thing1"><i class="fa fa-times"></i></span>     </div>  </div>  </a>  <div id="fog' + fog_counter + '_thing' + counter + '_details" style=" padding-left: 50px;    width: 550px;" class="collapse show" data-parent="#fog' + fog_counter + '_thing' + counter + '"> '+inputs+'   </div> </div>';
 }
+function GetData1() {
+      
 
+jsonObj = [];
+jsonObjTemp=[];
+jsonObjTemp['Frequency_rate']=$('#Frequency').val();
+jsonObjTemp['Frequency_priority']=$('#FrequencyPriority').val();
+jsonObj.push({'Frequency':jsonObjTemp});
+
+jsonObjTemp=[];
+jsonObjTemp['Sensitivity_rate']=$('#Sensitivity').val();
+jsonObjTemp['Sensitivity_priority']=$('#SensitivityPriority').val();
+jsonObj.push({'Sensitivity':jsonObjTemp});
+
+
+jsonObjTemp=[];
+jsonObjTemp['Freshness_rate']=$('#Freshness').val();
+jsonObjTemp['Freshness_priority']=$('#FreshnessPriority').val();
+jsonObj.push({'Freshness':jsonObjTemp});
+
+jsonObjTemp=[];
+jsonObjTemp['Time_rate']=$('#Time').val();
+jsonObjTemp['Time_priority']=$('#TimePriority').val();
+jsonObj.push({'Time':jsonObjTemp});
+
+jsonObjTemp=[];
+jsonObjTemp['Volume_rate']=$('#Volume').val();
+jsonObjTemp['Volume_priority']=$('#VolumePriority').val();
+jsonObj.push({'Volume':jsonObjTemp});
+
+jsonObjTemp=[];
+jsonObjTemp['Criticality_rate']=$('#Criticality').val();
+jsonObjTemp['Criticality_priority']=$('#CriticalityPriority').val();
+jsonObj.push({'Criticality':jsonObjTemp});
+ return jsonObj;
+
+}
 function GetData() {
     var fog_number= $('#fogs').children('.fog').length;
     var thing_number= $('div.thing').length;
@@ -114,14 +150,34 @@ function GetData() {
 }
 function SendData() {
 var ddd =GetData();
+// alert(ddd);
 //    console.log(ddd);
-$.post( "php/reciver.php",ddd, function( data, status, jqXHR ) {
-    alert('status: ' + status + ', data: ' + data );
-    console.log(jqXHR);
-  });
-// var xhr = new XMLHttpRequest();
-// xhr.open("POST", "php/reciver.php");
-// xhr.onreadystatechange = function() { if (xhr.readyState === 4 && xhr.status === 200) { console.log(xhr.responseText); } }
-// xhr.setRequestHeader("Content-type", "application/json")
-// xhr.send(JSON.stringify(data)); 
+// $.post( "php/reciver.php",ddd, function( data, status, jqXHR ) {
+//     alert('status: ' + status + ', data: ' + data );
+//     console.log(jqXHR);
+//   });
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "php/reciver.php");
+xhr.onreadystatechange = function() { if (xhr.readyState === 4 && xhr.status === 200) { console.log(xhr.responseText); } }
+xhr.setRequestHeader("Content-type", "application/json")
+xhr.send(JSON.stringify(ddd)); 
 }
+
+$(function () {
+
+    $('form').on('submit', function (e) {
+        console.log('rrr');
+      e.preventDefault();
+      $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: 'php/reciver.php',
+        data: JSON.stringify(GetData()),
+        success: function (data) {
+            console.log(data);
+        }
+      });
+
+    });
+
+  });
