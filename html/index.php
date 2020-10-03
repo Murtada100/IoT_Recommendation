@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
@@ -149,6 +151,53 @@
 
             </div>
         </section>
+        <br>
+        <br>
+  <div  id="Criteria_hidden"  ></div>
+            <div   id="cloud_hidden" ></div>  
+             <!-- <form class="form-inline" method="get"  action="">
+<input type="text" name="tt">
+              <button type="submit"   name="submit" id="submit" class="btn btn-primary">Submit</button>
+              <input type="submit" id="submit" value="submit" name="Submit1"><br/><br/>
+
+             </form>
+             
+             <?php
+             if(isset($_POST)){
+             echo $_GET['tt'];
+             }
+    if( isset($_POST['submit']) ){
+        echo $_POST['submit'];
+    }
+?>
+             <?php 
+    
+    echo ('here weee are');
+
+    if(isset($_POST["Submit1"]))
+  //  if(isset($_POST['submit']))
+          {
+            echo ('mmm uuu rtada');
+            echo ('mmm uuu rtada');
+
+              // echo ( $_POST["Criteria_hidden"]);
+             //  echo '<script type="text/javascript">',
+               //'GetData();',
+            //   '</script>';
+               $dom = new DOMDocument();
+
+               $dom->loadHTML($html);
+               
+               $xpath = new DOMXPath($dom);
+               $divContent = $xpath->query('div[id=Criteria_hidden]');
+               echo   $divContent;
+          }
+        
+        
+        ?> -->
+              
+        <br>
+        <br>
         <!-- Portfolio Modal-->
         <div class="portfolio-modal modal fade" id="portfolioModal0" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">

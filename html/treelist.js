@@ -42,6 +42,17 @@ $(document).on("click", ".deletingThing", function () {
 
 });
 
+$(document).on("click", "#submit", function () {
+
+  var cri=GetData1();
+  $("#Criteria_hidden").html(JSON.stringify(cri));
+  $("#Criteria_hidden").hide();
+  console.log(cri);
+  var clo=GetData();
+  $("#cloud_hidden").html(JSON.stringify(clo));
+  $("#cloud_hidden").hide();
+});
+
 
 $(document).on("click", "span.fog1", function () {
     // console.log("dsdsds!")
@@ -80,36 +91,36 @@ function GetThing(counter, fog_counter) {
     return '<div id="fog' + fog_counter + '_thing' + counter + '" class="thing" data-parent="#things' + fog_counter + '">  <a class="card-link" data-toggle="collapse" href="#fog' + fog_counter + '_thing' + counter + '_details">  <div class="input-group mb-3">  <div class="input-group-prepend">  <span class="input-group-text"><i class="fas fa-cloud"></i></span>  </div>  <button type="button" class="btn btn-outline-success thing"> Thing</button>  <div class="input-group-prepend">  <span id="fog' + fog_counter + '_thing' + counter + '" class="deletingThing input-group-text thing1"><i class="fa fa-times"></i></span>     </div>  </div>  </a>  <div id="fog' + fog_counter + '_thing' + counter + '_details" style=" padding-left: 50px;    width: 550px;" class="collapse show" data-parent="#fog' + fog_counter + '_thing' + counter + '"> '+inputs+'   </div> </div>';
 }
 function GetData1() {
-      
+      console.log("dsdsds!")
 
 jsonObj = [];
-jsonObjTemp=[];
+jsonObjTemp={};
 jsonObjTemp['Frequency_rate']=$('#Frequency').val();
 jsonObjTemp['Frequency_priority']=$('#FrequencyPriority').val();
 jsonObj.push({'Frequency':jsonObjTemp});
 
-jsonObjTemp=[];
+jsonObjTemp={};
 jsonObjTemp['Sensitivity_rate']=$('#Sensitivity').val();
 jsonObjTemp['Sensitivity_priority']=$('#SensitivityPriority').val();
 jsonObj.push({'Sensitivity':jsonObjTemp});
 
 
-jsonObjTemp=[];
+jsonObjTemp={};
 jsonObjTemp['Freshness_rate']=$('#Freshness').val();
 jsonObjTemp['Freshness_priority']=$('#FreshnessPriority').val();
 jsonObj.push({'Freshness':jsonObjTemp});
 
-jsonObjTemp=[];
+jsonObjTemp={};
 jsonObjTemp['Time_rate']=$('#Time').val();
 jsonObjTemp['Time_priority']=$('#TimePriority').val();
 jsonObj.push({'Time':jsonObjTemp});
 
-jsonObjTemp=[];
+jsonObjTemp={};
 jsonObjTemp['Volume_rate']=$('#Volume').val();
 jsonObjTemp['Volume_priority']=$('#VolumePriority').val();
 jsonObj.push({'Volume':jsonObjTemp});
 
-jsonObjTemp=[];
+jsonObjTemp={};
 jsonObjTemp['Criticality_rate']=$('#Criticality').val();
 jsonObjTemp['Criticality_priority']=$('#CriticalityPriority').val();
 jsonObj.push({'Criticality':jsonObjTemp});
@@ -117,6 +128,7 @@ jsonObj.push({'Criticality':jsonObjTemp});
 
 }
 function GetData() {
+    console.log("dsdsds!")
     var fog_number= $('#fogs').children('.fog').length;
     var thing_number= $('div.thing').length;
     console.log(fog_number+"   --    "+thing_number)
