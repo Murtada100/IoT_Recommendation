@@ -45,15 +45,28 @@ $(document).on("click", ".deletingThing", function () {
 $(document).on("click", "#submit", function () {
 
   var cri=GetData1();
-  $("#Criteria_hidden").html(JSON.stringify(cri));
-  $("#Criteria_hidden").hide();
+  $("#Criteria_hidden").val(JSON.stringify(cri));
+//   $("#Criteria_hidden").hide();
   console.log(cri);
   var clo=GetData();
-  $("#cloud_hidden").html(JSON.stringify(clo));
-  $("#cloud_hidden").hide();
+  $("#cloud_hidden").val(JSON.stringify(clo));
+  //$("#custId").val(JSON.stringify(clo));
+  
+//   $("#cloud_hidden").hide();
 });
-
-
+$("input").change(function(){
+    alert("The text has been changed.");
+    fill_divs();
+  });
+function fill_divs(){
+    var cri=GetData1();
+    $("#Criteria_hidden").html(JSON.stringify(cri));
+    $("#Criteria_hidden").hide();
+    console.log(cri);
+    var clo=GetData();
+    $("#cloud_hidden").html(JSON.stringify(clo));
+    $("#cloud_hidden").hide();
+}
 $(document).on("click", "span.fog1", function () {
     // console.log("dsdsds!")
     fog_id = $(this).attr("id");
@@ -64,7 +77,7 @@ $(document).on("click", "span.fog1", function () {
 
 function GetFog(counter) {
     //  return '<div id="fog' + counter + '" class="fog" data-parent="#fogs"> <a class="card-link" data-toggle="collapse" href="#fog'+counter+'_thing1"> <div class="input-group mb-3"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fas fa-cloud"></i></span> </div> <button type="button" class="btn btn-outline-primary fog"> Fog</button> <div class="input-group-prepend"> <span id="'+counter+'" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span> <span class="input-group-text fog1"><i class="fa fa-plus"></i></span> </div> </div> </a> <div id="things"  > </div> </div> ';
-    return '<div id="fog' + counter + '" fognumber="'+counter+'" class="fog" data-parent="#fogs"> <a class="card-link" data-toggle="collapse" href="#things' + counter + '"> <div class="input-group mb-3"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fas fa-cloud"></i></span> </div> <button type="button" class="btn btn-outline-info fog"> Fog</button> <div class="input-group-prepend"> <span id="' + counter + '" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span> <span id="' + counter + '" class="input-group-text fog1"><i class="fa fa-plus"></i></span> </div> </div> </a> <div id="things' + counter + '"  class="collapse show" data-parent="#fog' + counter + '"> </div> </div> ';
+    return '<div id="fog' + counter + '" fognumber="'+counter+'" class="fog" data-parent="#fogs">  <div class="input-group mb-3"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fas fa-cloud"></i></span> </div><a class="card-link" data-toggle="collapse" href="#things' + counter + '"> <button type="button" class="btn btn-outline-info fog"> Fog</button> </a><div class="input-group-prepend"> <span id="' + counter + '" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span> <span id="' + counter + '" class="input-group-text fog1"><i class="fa fa-plus"></i></span> </div> </div>  <div id="things' + counter + '"  class="collapse show" data-parent="#fog' + counter + '"> </div> </div> ';
 }
 $('input[type=range]').on('change', function () {  
     console.log("dsdsds!")
@@ -160,36 +173,36 @@ function GetData() {
    // console.log(jsonObj);
     return jsonObj;
 }
-function SendData() {
-var ddd =GetData();
-// alert(ddd);
-//    console.log(ddd);
-// $.post( "php/reciver.php",ddd, function( data, status, jqXHR ) {
-//     alert('status: ' + status + ', data: ' + data );
-//     console.log(jqXHR);
+// function SendData() {
+// var ddd =GetData();
+// // alert(ddd);
+// //    console.log(ddd);
+// // $.post( "php/reciver.php",ddd, function( data, status, jqXHR ) {
+// //     alert('status: ' + status + ', data: ' + data );
+// //     console.log(jqXHR);
+// //   });
+// var xhr = new XMLHttpRequest();
+// xhr.open("POST", "php/reciver.php");
+// xhr.onreadystatechange = function() { if (xhr.readyState === 4 && xhr.status === 200) { console.log(xhr.responseText); } }
+// xhr.setRequestHeader("Content-type", "application/json")
+// xhr.send(JSON.stringify(ddd)); 
+// }
+
+// $(function () {
+
+//     $('form').on('submit', function (e) {
+//         console.log('rrr');
+//       e.preventDefault();
+//       $.ajax({
+//         type: 'post',
+//         dataType: 'json',
+//         url: 'index.php',
+//         data: JSON.stringify(GetData()),
+//         success: function (data) {
+//             console.log(data);
+//         }
+//       });
+
+//     });
+
 //   });
-var xhr = new XMLHttpRequest();
-xhr.open("POST", "php/reciver.php");
-xhr.onreadystatechange = function() { if (xhr.readyState === 4 && xhr.status === 200) { console.log(xhr.responseText); } }
-xhr.setRequestHeader("Content-type", "application/json")
-xhr.send(JSON.stringify(ddd)); 
-}
-
-$(function () {
-
-    $('form').on('submit', function (e) {
-        console.log('rrr');
-      e.preventDefault();
-      $.ajax({
-        type: 'post',
-        dataType: 'json',
-        url: 'php/reciver.php',
-        data: JSON.stringify(GetData()),
-        success: function (data) {
-            console.log(data);
-        }
-      });
-
-    });
-
-  });

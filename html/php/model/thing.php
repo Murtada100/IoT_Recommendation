@@ -1,12 +1,89 @@
 <?php
-class Thing {
- 
-    public $TimeProcessing; 
-  // Methods
-  function set_TimeProcessing($TimeProcessing) {
- 
+class Thing
+{
+  public $TimeProcessing;
+  public $Distance;
+  public $Data_size;
+  public $Rate_send;
+
+
+  /**
+   * Get the value of Distance
+   */
+  public function getDistance()
+  {
+    return $this->Distance;
   }
-  function get_TimeProcessing($TimeProcessing) {
-  
+
+  /**
+   * Set the value of Distance
+   *
+   * @return  self
+   */
+  public function setDistance($Distance)
+  {
+    $this->Distance = $Distance;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of Rate_send
+   */
+  public function getRate_send()
+  {
+    return $this->Rate_send;
+  }
+
+  /**
+   * Set the value of Rate_send
+   *
+   * @return  self
+   */
+  public function setRate_send($Rate_send)
+  {
+    $this->Rate_send = $Rate_send;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of Data_size
+   */
+  public function getData_size()
+  {
+    return $this->Data_size;
+  }
+
+  /**
+   * Set the value of Data_size
+   *
+   * @return  self
+   */
+  public function setData_size($Data_size)
+  {
+    $this->Data_size = $Data_size;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of TimeProcessing
+   */
+  public function getTimeProcessing()
+  {
+    return $this->TimeProcessing;
+  }
+
+  /**
+   * Set the value of TimeProcessing
+   *
+   * @return  self
+   */
+  public function setTimeProcessing($TimeProcessing)
+  {
+    $this->TimeProcessing = $TimeProcessing;
+
+    return $this;
   }
 }

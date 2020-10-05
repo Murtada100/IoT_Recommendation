@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+ 
+   <?php
+   session_start();
+   
+   ?> 
+   <!DOCTYPE html>
 <html lang="en">
     <head>
 
@@ -72,17 +77,18 @@
 
                 <div id="accordion" class="border">
                     <div id="cloud1" style="padding-top: 15px; padding-left: 15px;" class="collapse show" data-parent="#accordion">
-                        <a class="card-link" data-toggle="collapse" href="#fogs">
+                      
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-cloud"></i></span>
                                 </div>
-                                <button type="button" class="btn btn-outline-primary cloud"> Cloud</button>
+                                 <a class="card-link" data-toggle="collapse" href="#fogs"> <button type="button" class="btn btn-outline-primary cloud"> Cloud</button> </a>  
+
                                 <div class="input-group-prepend">
                                     <span class="input-group-text addfog cloud1"><i class="fa fa-plus"></i></span>
                                 </div>                
                             </div>
-                        </a>                
+                                     
                         <div id="fogs" class="panel-collapse collapse" data-parent="#cloud1">
                         </div>
                     </div>
@@ -153,48 +159,49 @@
         </section>
         <br>
         <br>
-  <div  id="Criteria_hidden"  ></div>
-            <div   id="cloud_hidden" ></div>  
-             <!-- <form class="form-inline" method="get"  action="">
-<input type="text" name="tt">
+  <!-- <div  id="Criteria_hidden"  ></div>
+            <div   id="cloud_hidden" ></div>   -->
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+            <input type="hidden" id="Criteria_hidden" name="Criteria_hidden" value="wwww">
+
+            <input type="hidden" id="cloud_hidden" name="cloud_hidden" value="wwww">
+
+<!-- <input  type="text" name="fname"> -->
               <button type="submit"   name="submit" id="submit" class="btn btn-primary">Submit</button>
-              <input type="submit" id="submit" value="submit" name="Submit1"><br/><br/>
+      
 
              </form>
-             
-             <?php
-             if(isset($_POST)){
-             echo $_GET['tt'];
-             }
-    if( isset($_POST['submit']) ){
-        echo $_POST['submit'];
-    }
-?>
-             <?php 
-    
-    echo ('here weee are');
+                                <?php
+                              
+                    //           echo ('1111111111111');
 
-    if(isset($_POST["Submit1"]))
-  //  if(isset($_POST['submit']))
-          {
-            echo ('mmm uuu rtada');
-            echo ('mmm uuu rtada');
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    //  echo ('22222222222222222');
+                    
+                    // print_r(json_decode($_POST['cloud_hidden'], true));// json_decode($_POST['cloud_hidden'], true);
+                    // echo json_decode($_POST['Criteria_hidden'], true);
 
-              // echo ( $_POST["Criteria_hidden"]);
-             //  echo '<script type="text/javascript">',
-               //'GetData();',
-            //   '</script>';
-               $dom = new DOMDocument();
-
-               $dom->loadHTML($html);
-               
-               $xpath = new DOMXPath($dom);
-               $divContent = $xpath->query('div[id=Criteria_hidden]');
-               echo   $divContent;
-          }
-        
-        
-        ?> -->
+                    $_SESSION["cloud_hidden"] =json_decode($_POST['cloud_hidden'], true);
+                    $_SESSION["Criteria_hidden"] =json_decode($_POST['Criteria_hidden'], true);
+                    }
+                        // collect value of input field
+                        // $name = $_POST['custId'];
+                        // $json = json_decode(file_get_contents("php://input", true));
+                        // // $dom = new DOMDocument();
+                        // echo $json;
+                        // $dom->loadHTML($html);
+                        
+                        // $xpath = new DOMXPath($dom);
+                        // $divContent = $xpath->query('div[id=Criteria_hidden]');
+                        // echo   $divContent;
+                    //     if (empty($name)) {
+                    //         //echo $_POST['cloud_hidden'];
+                    //     } else {
+                    //         echo $name;
+                    //     }
+                    // }
+                    ?>
+      
               
         <br>
         <br>
