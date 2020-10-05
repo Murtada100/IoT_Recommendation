@@ -57,6 +57,7 @@
       $cloud->Add_Fog($fog);
     }
    }
+  }
 
 
 
@@ -65,4 +66,3 @@
             print_r($obj); 
         }
          print_r($cloud->getFogs());  //."<br>";
- 
