@@ -5,6 +5,7 @@ class Thing
   public $Distance;
   public $Data_size;
   public $Rate_send;
+  public $aim;
 
 
   /**
@@ -86,4 +87,33 @@ class Thing
 
     return $this;
   }
+
+  /**
+   * Get the value of aim
+   */ 
+  public function getAim()
+  {
+    return $this->aim;
+  }
+
+  /**
+   * Set the value of aim
+   *
+   * @return  self
+   */ 
+  public function setAim($aim)
+  {
+    $this->aim = $aim;
+
+    return $this;
+  }
+ 
+
+  public function __toString(){
+    return  "Thing[TimeProcessing: ".$this->TimeProcessing."  -- Distance: ".$this->Distance
+    ."  -- Data_size: ".$this->Data_size
+    ."  -- Rate_send: ".$this->Rate_send
+    ."  -- aim: ".$this->aim."]";
+  }
+
 }

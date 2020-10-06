@@ -7,7 +7,8 @@ class Fog
 
   public function Add_Thing($thing)
   {
-    $things[] = $thing;
+    $this->things[] = $thing;
+     return $this;
   }
 
   /**
@@ -48,5 +49,9 @@ class Fog
     $this->TimeProcessing = $TimeProcessing;
 
     return $this;
+  }
+
+  public function __toString(){
+    return  "TimeProcessing: ".$this->TimeProcessing."  -- Thing_counts: ".count($this->things);
   }
 }

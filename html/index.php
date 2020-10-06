@@ -161,7 +161,7 @@
         <br>
   <!-- <div  id="Criteria_hidden"  ></div>
             <div   id="cloud_hidden" ></div>   -->
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" style="text-align: center;">
             <input type="hidden" id="Criteria_hidden" name="Criteria_hidden" value="wwww">
 
             <input type="hidden" id="cloud_hidden" name="cloud_hidden" value="wwww">
@@ -183,6 +183,13 @@
 
                     $_SESSION["cloud_hidden"] =json_decode($_POST['cloud_hidden'], true);
                     $_SESSION["Criteria_hidden"] =json_decode($_POST['Criteria_hidden'], true);
+                     if (isset( $_SESSION["cloud_hidden"]))
+                    {
+                    
+                        echo "<script>location.href='php/reciver.php';</script>";
+
+                    }
+                
                     }
                         // collect value of input field
                         // $name = $_POST['custId'];

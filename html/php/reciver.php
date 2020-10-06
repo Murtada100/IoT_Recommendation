@@ -1,10 +1,14 @@
 <?php
-     session_start();
-     require_once('criteria.php');
-     require_once('model/recommendationFeatures.php');
-     require_once('model/cloud.php');
-     require_once('model/fog.php');
-     require_once('model/thing.php');
+session_start();
+require_once('criteria.php');
+require_once('model/recommendationFeatures.php');
+require_once('model/cloud.php');
+require_once('model/fog.php');
+require_once('model/thing.php');
+
+require_once('Processingplacements.php');
+require_once('StoragePlacements.php');
+
 /*
 *The current implementation extract the cloud configuration and criteria into json format and set it into sessions then the 
 * system will rediect you to reciver.php where the json is convert into OOP sturcutre
@@ -12,57 +16,75 @@
 **
 ***
 */
- 
-   $Criteria=new criteria();
-   $cloud_json=$_SESSION["cloud_hidden"];
-   $Criteria_hidden=$_SESSION["Criteria_hidden"] ;
-// print_r( $Criteria_hidden[0]["Frequency"] );
-   foreach($Criteria_hidden as $CriteriaObject) { 
-       foreach($CriteriaObject as $Criteria_title => $Crit) {
-        //   foreach($Crit as $Criteria_var => $value) {
-          // echo   $Criteria_title . " => " .  $Crit['Frequency_rate']. "<br>";
-               $RF=new Recommendation_Feature();
-               $RF->setTitle($Criteria_title);
-               $RF->setPriority($Crit[$Criteria_title.'_priority']);
-               $RF->setWeight($Crit[$Criteria_title.'_rate']);
-               //$Criteria->Recommendation_Features[]=$RF;
-               $Criteria->Add_Recommendation_Feature($RF);
-            
-         //  }
-     }
-   }
- 
 
+$Criteria = new criteria();
+$cloud_json = $_SESSION["cloud_hidden"];
+$Criteria_hidden = $_SESSION["Criteria_hidden"];
+print_r($cloud_json);
+foreach ($Criteria_hidden as $CriteriaObject) {
+  foreach ($CriteriaObject as $Criteria_title => $Crit) {
+    $RF = new Recommendation_Feature();
+    $RF->setTitle($Criteria_title);
+    $RF->setPriority($Crit[$Criteria_title . '_priority']);
+    $RF->setWeight($Crit[$Criteria_title . '_rate']);
+    //$Criteria->Recommendation_Features[]=$RF;
+    $Criteria->Add_Recommendation_Feature($RF);
 
-
-   $cloud=new Cloud();
-   
-
-   foreach($cloud_json as $fogs) { 
-  
-
-      foreach($fogs as $fogs_title => $things) {
-  //  print_r( $things  );
-  $fog=new Fog();
-    foreach($things as $title => $things_obj)
-        {
-            foreach($things_obj as $thing_title => $value)
-            {
-                $thing=new Thing();
-                $thing->setRate_send($value["rate"]);
-                $thing->setDistance($value["distance"]);
-                $thing->setData_size($value["data"]);
-                $fog->Add_Thing($thing);
-      }
-      $cloud->Add_Fog($fog);
-    }
-   }
+    //  }
   }
+}
 
 
 
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
 
-        foreach ($cloud->getFogs() as $obj){
-            print_r($obj); 
-        }
-         print_r($cloud->getFogs());  //."<br>";
+$cloud = new Cloud();
+
+
+foreach ($cloud_json as $fogs) {
+  foreach ($fogs as $fogs_title => $things) {
+    $fog = new Fog();
+    foreach ($things as $things_obj) {
+      $thing = new Thing();
+      $thing->setRate_send($things_obj['thing']["rate"]);
+      $thing->setDistance($things_obj['thing']["distance"]);
+      $thing->setData_size($things_obj['thing']["data"]);
+      $thing->setAim($things_obj['thing']["check"]);
+      $fog->Add_Thing($thing);
+    }
+    $cloud->Add_Fog($fog);
+  }
+}
+
+
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+
+foreach ($cloud->getFogs() as $obj) {
+  print_r($obj->getThings());
+  echo "<br>";
+
+  foreach ($obj->getThings() as $dd) {
+    print_r($dd);
+    echo "<br>";
+  }
+}
+
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+print_r($Criteria);  //."<br>";
+
+//////////////////////////////////////
+
+//  $processing_placement=new Processing_placements($cloud,$Criteria);
+
+$storage_placements = new storage_placements($cloud, $Criteria);
