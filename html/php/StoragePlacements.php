@@ -17,6 +17,7 @@ class storage_placements
     private $Time_weight = 1;
     private $Volume_weight = 1;
     private $Criticality_weight = 1;
+    
     private $Criteria_weight = array();
 
 
