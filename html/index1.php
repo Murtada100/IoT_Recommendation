@@ -1,6 +1,7 @@
  <?php
     session_start();
-
+//     $out=shell_exec('test_function 1 1 1 1 1 1');
+// echo  $out;
     ?>
  <!DOCTYPE html>
  <html lang="en">

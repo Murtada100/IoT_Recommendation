@@ -7,6 +7,14 @@ class Thing
   public $Rate_send;
   public $aim;
 
+  public $thing_domain;
+  public $Frequency;
+  public $Sensitivity;
+  public $Freshness;
+  public $Time;
+  public $Volume;
+  public $Criticality;
+
 
   /**
    * Get the value of Distance
@@ -110,10 +118,158 @@ class Thing
  
 
   public function __toString(){
-    return  "Thing[TimeProcessing: ".$this->TimeProcessing."  -- Distance: ".$this->Distance
-    ."  -- Data_size: ".$this->Data_size
-    ."  -- Rate_send: ".$this->Rate_send
-    ."  -- aim: ".$this->aim."]";
+    return  "Thing[thing_domain: ".$this->thing_domain."  -- Frequency: ".$this->Frequency
+    ."  -- Sensitivity: ".$this->Sensitivity
+    ."  -- Freshness: ".$this->Freshness
+    ."  -- Volume: ".$this->Volume
+    ."  -- Criticality: ".$this->Criticality
+    ."  -- Time: ".$this->Time."]";
   }
 
+
+  /**
+   * Get the value of thing_domain
+   */ 
+  public function getThing_domain()
+  {
+    return $this->thing_domain;
+  }
+
+  /**
+   * Set the value of thing_domain
+   *
+   * @return  self
+   */ 
+  public function setThing_domain($thing_domain)
+  {
+    $this->thing_domain = $thing_domain;
+
+    return $this;
+  }
+
+ /**
+  * Get the value of Criticality
+  */ 
+ public function getCriticality()
+ {
+  return $this->Criticality;
+ }
+
+ /**
+  * Set the value of Criticality
+  *
+  * @return  self
+  */ 
+ public function setCriticality($Criticality)
+ {
+  $this->Criticality = $Criticality;
+
+  return $this;
+ }
+
+ /**
+  * Get the value of Frequency
+  */ 
+ public function getFrequency()
+ {
+  return $this->Frequency;
+ }
+
+ /**
+  * Set the value of Frequency
+  *
+  * @return  self
+  */ 
+ public function setFrequency($Frequency)
+ {
+  $this->Frequency = $Frequency;
+
+  return $this;
+ }
+
+ /**
+  * Get the value of Sensitivity
+  */ 
+ public function getSensitivity()
+ {
+  return $this->Sensitivity;
+ }
+
+ /**
+  * Set the value of Sensitivity
+  *
+  * @return  self
+  */ 
+ public function setSensitivity($Sensitivity)
+ {
+  $this->Sensitivity = $Sensitivity;
+
+  return $this;
+ }
+
+ /**
+  * Get the value of Freshness
+  */ 
+ public function getFreshness()
+ {
+  return $this->Freshness;
+ }
+
+ /**
+  * Set the value of Freshness
+  *
+  * @return  self
+  */ 
+ public function setFreshness($Freshness)
+ {
+  $this->Freshness = $Freshness;
+
+  return $this;
+ }
+
+ /**
+  * Get the value of Time
+  */ 
+ public function getTime()
+ {
+  return $this->Time;
+ }
+
+ /**
+  * Set the value of Time
+  *
+  * @return  self
+  */ 
+ public function setTime($Time)
+ {
+  $this->Time = $Time;
+
+  return $this;
+ }
+
+ /**
+  * Get the value of Volume
+  */ 
+ public function getVolume()
+ {
+  return $this->Volume;
+ }
+
+ /**
+  * Set the value of Volume
+  *
+  * @return  self
+  */ 
+ public function setVolume($Volume)
+ {
+  $this->Volume = $Volume;
+
+  return $this;
+ }
+
+ public function getCri()
+ {
+  return $this->Frequency." ".$this->Sensitivity." ".$this->Freshness." ".$this->Time." ".$this->Volume." ".$this->Criticality;
+ }
+ 
 }

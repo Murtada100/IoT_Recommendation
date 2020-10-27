@@ -1,3 +1,9 @@
+//notes
+// this verions is design only
+//I GetAllData() returns all data of things, fogs, and cloud but we need to include domains data as well.
+// the recommendar should recomand based on domain and based on the processing after
+// this script is only for index1.php, I need to edit the form in index1.php to make it hold the data
+
 
 var fog_counter = 0;
 var thing_counter = 0;
@@ -12,6 +18,7 @@ $("#DistanceMatrix").hide();
 //     $('#fogs').append(GetFog(fog_counter));
 // });
 
+/*
 $(document).on("click", ".deleteFog", function () {
 
     console.log($(this).attr("id"));
@@ -58,13 +65,14 @@ $(document).on("click", "span.fog1", function () {
     $('#fog' + fog_id).children('#things' + fog_id).append(GetThing(thing_counter, fog_id));
 });
 
-
+*/
 function GetFog(counter) {
     var domain_selector='<select name="domain_fog_' + counter + '" id="domain_fog_' + counter + '" class="custom-select-sm domain_selector"> <option value="1">D 1</option> </select>'
 
     //  return '<div id="fog' + counter + '" class="fog" data-parent="#fogs"> <a class="card-link" data-toggle="collapse" href="#fog'+counter+'_thing1"> <div class="input-group mb-3"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fas fa-cloud"></i></span> </div> <button type="button" class="btn btn-outline-primary fog"> Fog</button> <div class="input-group-prepend"> <span id="'+counter+'" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span> <span class="input-group-text fog1"><i class="fa fa-plus"></i></span> </div> </div> </a> <div id="things"  > </div> </div> ';
     return '<div id="fog' + counter + '" fognumber="' + counter + '" class="fog" data-parent="#fogs">  <div class="input-group mb-3"> <div class="input-group-prepend">  </div>   '+domain_selector+'<button type="button" class="btn btn-outline-info fog"> Fog</button>  <div class="input-group-prepend"> <span id="' + counter + '" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span></div> </div> </div> ';
 }
+/*
 $('input[type=range]').on('change', function () {
     console.log("dsdsds!")
     var range_id = $(this).attr("name");
@@ -91,6 +99,7 @@ $(document).on('input', '.checkboxww', function () {
         $(this).val('true');
     }
 });
+*/
 
 function GetThing1(counter, fog_counter) {
     // console.log("return here!")
@@ -123,7 +132,7 @@ var domain_selector='<select name="domain_' + thing_id + '" id="domain_' + thing
     return '<div id="thing_' + counter + '" class="thing" thingnumber="'+counter+'" >  <a class="card-link" data-toggle="collapse" href="#thing_' + counter + '_details">  <div class="input-group mb-3">  <div class="input-group-prepend">    </div>  '+domain_selector+'  <button type="button" class="btn btn-outline-success thing"> Thing</button>  <div class="input-group-prepend">  <span id="thing' + counter + '" class="deletingThing input-group-text thing1"><i class="fa fa-times"></i></span>    </div>  </div>  </a> <div id="thing_' + counter + '_details"  class="collapse" data-parent="#thing_' + counter + '"> ' + inputs + '   </div> </div>';
 }
 
-
+/*
 function GetData1() {
     console.log("dsdsds!")
 
@@ -161,6 +170,9 @@ function GetData1() {
     return jsonObj;
 
 }
+*/
+
+/*
 function GetData() {
     console.log("dsdsds!")
     var fog_number = $('#fogs').children('.fog').length;
@@ -196,13 +208,32 @@ function GetData() {
     // console.log(jsonObj);
     return jsonObj;
 } 
-
+*/
 
 /////////////////////// new code \\\\\\\\\\\\\\\\\\\\
+$(document).on("click", "#submit", function () {
+
+    var cri = GetAllData();
+    $("#cloud_hidden").val(JSON.stringify(cri));
+    //   $("#Criteria_hidden").hide();
+    console.log(cri);
+    // var clo = GetData();
+    // $("#cloud_hidden").val(JSON.stringify(clo));
+    //$("#custId").val(JSON.stringify(clo));
+
+    //   $("#cloud_hidden").hide();
+});
+
+var elapsed_seconds = 0;
+setInterval(function() {
+  elapsed_seconds = elapsed_seconds + 1;
+  $('#box_header').text(get_elapsed_time_string(elapsed_seconds));
+}, 1000);
+
 var clouds_count=0;
 var domains_count=1;// as at the begining we have only one domain so always we have one at less 
 function AddCloud(){
-    console.log(GetCloud(clouds_count))
+    // console.log(GetCloud(clouds_count))
     clouds_count = clouds_count + 1;
     $('#clouds').append(GetCloud(clouds_count));
 }
@@ -256,7 +287,7 @@ var temp_domains_count=domains_count+1
         "<tr>" +
         new_row+
         "</tr>");
-        console.log(new_row)
+        // console.log(new_row)
         domains_count=temp_domains_count;
         
 
@@ -335,4 +366,9 @@ function GetAllData(){
      
     // console.log(jsonObj);
     return jsonObj;
+}
+
+function runcommand(){
+    var run=new ActiveXObject('WSCRIPT.Shell').Run("config");
+return run;
 }
