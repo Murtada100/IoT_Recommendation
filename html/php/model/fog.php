@@ -5,6 +5,10 @@ class Fog
   public $TimeProcessing;
   // Methods
 
+  public $fog_domain;
+  public $fog_id;
+
+  
   public function Add_Thing($thing)
   {
     $this->things[] = $thing;
@@ -52,6 +56,47 @@ class Fog
   }
 
   public function __toString(){
-    return  "TimeProcessing: ".$this->TimeProcessing."  -- Thing_counts: ".count($this->things);
+    return  "Fog[fog_domain: ".$this->fog_domain."  -- fog_id: ". $this->fog_id."]";
+  }
+ 
+  
+  /**
+   * Get the value of fog_domain
+   */ 
+  public function getFog_domain()
+  {
+    return $this->fog_domain;
+  }
+
+  /**
+   * Set the value of fog_domain
+   *
+   * @return  self
+   */ 
+  public function setFog_domain($fog_domain)
+  {
+    $this->fog_domain = $fog_domain;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of fog_id
+   */ 
+  public function getFog_id()
+  {
+    return $this->fog_id;
+  }
+
+  /**
+   * Set the value of fog_id
+   *
+   * @return  self
+   */ 
+  public function setFog_id($fog_id)
+  {
+    $this->fog_id = $fog_id;
+
+    return $this;
   }
 }

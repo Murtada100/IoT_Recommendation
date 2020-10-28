@@ -7,6 +7,7 @@ class Thing
   public $Rate_send;
   public $aim;
 
+  public $thing_id;
   public $thing_domain;
   public $Frequency;
   public $Sensitivity;
@@ -118,12 +119,13 @@ class Thing
  
 
   public function __toString(){
-    return  "Thing[thing_domain: ".$this->thing_domain."  -- Frequency: ".$this->Frequency
+    return  "Thing[thing_domain: ".$this->thing_domain."  -- ID: ".$this->thing_id
+    ."  -- Frequency: ".$this->Frequency
     ."  -- Sensitivity: ".$this->Sensitivity
-    ."  -- Freshness: ".$this->Freshness
-    ."  -- Volume: ".$this->Volume
-    ."  -- Criticality: ".$this->Criticality
-    ."  -- Time: ".$this->Time."]";
+    ."  -- Freshness: ".$this->Freshness   
+    ."  -- Time: ".$this->Time."  -- Volume: "
+    .$this->Volume."  -- Criticality: "
+    .$this->Criticality."]";
   }
 
 
@@ -272,4 +274,24 @@ class Thing
   return $this->Frequency." ".$this->Sensitivity." ".$this->Freshness." ".$this->Time." ".$this->Volume." ".$this->Criticality;
  }
  
+
+  /**
+   * Get the value of thing_id
+   */ 
+  public function getThing_id()
+  {
+    return $this->thing_id;
+  }
+
+  /**
+   * Set the value of thing_id
+   *
+   * @return  self
+   */ 
+  public function setThing_id($thing_id)
+  {
+    $this->thing_id = $thing_id;
+
+    return $this;
+  }
 }

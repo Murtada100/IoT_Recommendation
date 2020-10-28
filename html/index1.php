@@ -13,7 +13,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <meta name="description" content="">
      <meta name="author" content="">
-     <title>IoT Recommendation</title>
+     <title>IoT Business-Model</title>
      <!-- Font Awesome icons (free version)-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
      <!-- Core theme CSS (includes Bootstrap)-->
@@ -32,7 +32,7 @@
 
  <body id="page-top">
      <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
-         <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">Cloud Computing</a>
+         <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">IoT Business-Model</a>
              <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
              <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto">
@@ -50,19 +50,14 @@
      </nav>
      <header class="masthead bg-primary text-white text-center">
          <div class="container d-flex align-items-center flex-column">
-             <!-- Masthead Avatar Image<img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt=""> -->
-             <!-- Masthead Heading-->
-             <h1 class="masthead-heading mb-0">IoT Recommendation</h1>
-             <!-- Icon Divider-->
+          <!--     <h1 class="masthead-heading mb-0">IoT Recommendation</h1>
              <div class="divider-custom divider-light">
                  <div class="divider-custom-line"></div>
                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                  <div class="divider-custom-line"></div>
-             </div>
-             <!-- Masthead Subheading-->
-             <!-- <p class="pre-wrap masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p> -->
+             </div>-->
          </div>
-     </header>
+     </header> 
      <section class="page-section portfolio" id="portfolio">
          <!-- <form>
                 <input name="submit" type="submit" value="Submit">
@@ -293,7 +288,7 @@
         //           echo ('1111111111111');
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            //  echo ('22222222222222222');
+            echo ('22222222222222222');
 
             // print_r(json_decode($_POST['cloud_hidden'], true));// json_decode($_POST['cloud_hidden'], true);
             // echo json_decode($_POST['Criteria_hidden'], true);
@@ -302,7 +297,7 @@
             $_SESSION["Criteria_hidden"] = json_decode($_POST['Criteria_hidden'], true);
             if (isset($_SESSION["cloud_hidden"])) {
 
-                echo "<script>location.href='php/reciver.php';</script>";
+                echo "<script>location.href='/MohZ/html/php/reciver.php';</script>";
             }
         }
         // collect value of input field
@@ -489,9 +484,9 @@
              </div>
          </div>
      </div>
-     <section class="page-section bg-primary text-white mb-0" id="about">
+        <!-- <section class="page-section bg-primary text-white mb-0" id="about">
          <div class="container">
-             <!--        <div class="text-center">
+                 <div class="text-center">
                     <h2 class="page-section-heading d-inline-block text-white">ABOUT</h2>
                 </div> 
                 <div class="divider-custom divider-light">
@@ -506,22 +501,19 @@
                     <div class="col-lg-4 mr-auto">
                         <p class="pre-wrap lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
                     </div>
-                </div> -->
+                </div>
          </div>
-     </section>
-     <section class="page-section" id="contact">
-         <div class="container">
-             <!-- Contact Section Heading-->
+     </section> 
+      <section class="page-section" id="contact">
+         <div class="container"> 
              <div class="text-center">
                  <h2 class="page-section-heading text-secondary d-inline-block mb-0">CONTACT</h2>
-             </div>
-             <!-- Icon Divider-->
+             </div> 
              <div class="divider-custom">
                  <div class="divider-custom-line"></div>
                  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                  <div class="divider-custom-line"></div>
-             </div>
-             <!-- Contact Section Content-->
+             </div> 
              <div class="row justify-content-center">
                  <div class="col-lg-4">
                      <div class="d-flex flex-column align-items-center">
@@ -539,27 +531,24 @@
              </div>
          </div>
      </section>
-     <footer class="footer text-center">
+   <footer class="footer text-center">
          <div class="container">
-             <div class="row">
-                 <!-- Footer Location-->
+             <div class="row"> 
                  <div class="col-lg-4 mb-5 mb-lg-0">
                      <h4 class="mb-4">LOCATION</h4>
                      <p class="pre-wrap lead mb-0">UK
                          Reading</p>
-                 </div>
-                 <!-- Footer Social Icons-->
+                 </div> 
                  <div class="col-lg-4 mb-5 mb-lg-0">
                      <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/#"><i class="fab fa-fw fa-facebook-f"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/sbootstrap"><i class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/#"><i class="fab fa-fw fa-linkedin-in"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.dribble.com/#"><i class="fab fa-fw fa-dribbble"></i></a>
-                 </div>
-                 <!-- Footer About Text-->
+                 </div> 
                  <div class="col-lg-4">
                      <h4 class="mb-4">ABOUT</h4>
                      <p class="pre-wrap lead mb-0">IoT Recommendation</p>
                  </div>
              </div>
          </div>
-     </footer>
+     </footer> -->
      <!-- Copyright Section-->
      <section class="copyright py-4 text-center text-white">
          <div class="container"><small class="pre-wrap">Copyright © Your Website 2020</small></div>
