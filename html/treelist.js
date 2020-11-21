@@ -80,14 +80,14 @@ function GetFog(counter) {
     return '<div id="fog' + counter + '" fognumber="' + counter + '" class="fog" data-parent="#fogs">  <div class="input-group mb-3"> <div class="input-group-prepend"> <span class="input-group-text"><i class="fas fa-cloud"></i></span> </div><a class="card-link" data-toggle="collapse" href="#things' + counter + '"> <button type="button" class="btn btn-outline-info fog"> Fog</button> </a><div class="input-group-prepend"> <span id="' + counter + '" class="deleteFog input-group-text fog1"><i class="fa fa-times"></i></span> <span id="' + counter + '" class="input-group-text fog1"><i class="fa fa-plus"></i></span> </div> </div>  <div id="things' + counter + '"  class="collapse show" data-parent="#fog' + counter + '"> </div> </div> ';
 }
 $('input[type=range]').on('change', function () {
-    console.log("dsdsds!")
+    console.log("111111!")
     var range_id = $(this).attr("name");
     var range_value = $(this).val();
     $("span#" + range_id).html(range_value);
 
 });
 $(document).on('input', '.slider', function () {
-    console.log("dsdsds!")
+    console.log("dsdsscsds!")
     var range_id = $(this).attr("name");
     var range_value = $(this).val();
     $("span#" + range_id).html(range_value);
